@@ -16,7 +16,4 @@ public class AppConfig {
     public OrderService orderService() {
         return new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy());
     }
-    public DiscountPolicy discountPolicy() {
-        return new RateDiscountPolicy();
-    }
 }
