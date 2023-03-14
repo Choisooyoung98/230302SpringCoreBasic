@@ -1,5 +1,8 @@
 package hello.core;
 
+import hello.core.member.MemberRepository;
+import hello.core.member.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -18,5 +21,12 @@ import org.springframework.context.annotation.FilterType;
 //@Repository: 스프링 데이터 접근 계층에서 사용, 스프링 데이터 접근 계층으로 인식하고, 데이터 계층의 예외를 스프링 예외로 변환해준다.
 //@Configuration: 스프링 설정 정보에서 사용, 스플링 빈이 싱글톤을 유지하도록 추가 처리를 한다.
 public class AutoAppConfig {
+
+    @Bean(name = "memoryMemberRepository")
+    public MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
+
+    //수동 빈 등록시 우선권을 가진다. 자동 빈을 오버라이딩 해버린다. 현재는 스프링부터에서 오류를 출력한다.
 
 }
