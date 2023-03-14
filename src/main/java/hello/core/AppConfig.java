@@ -10,6 +10,10 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+//@Configuration 을 붙이면 바이트 코드를 조작하는 CGLIB 기술을 사용해서
+//싱글톤을 보장한다.
+//@Bean만 사용해도 스프링 빈으로 등록되지만, 싱글톤을 보장하지 않는다.
+//스프링 설정 정보에는 @Configuration을 항상 사용하자!
 @Configuration // 설정 정보, 구성 정보
 public class AppConfig {
     @Bean // 스프링 컨테이너에 등록
